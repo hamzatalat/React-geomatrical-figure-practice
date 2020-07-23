@@ -13,7 +13,8 @@ class App extends React.Component {
     super(props);
     this.state = {type:'' ,statement:'' , 
                   cx: '' ,cy:'' , cr:'',
-                  rect_x_axis: '' ,rect_y_axis:'' ,rect_height:'' , rect_width:''
+                  rect_x_axis: '' ,rect_y_axis:'' ,rect_height:'' , rect_width:'',
+                  point_var:''
     };
     this.handleChange = this.handleChange.bind(this);
     this.activate_draw = this.activate_draw.bind(this);
@@ -29,8 +30,9 @@ handleChange(event) {
   this.setState({ statement: event.target.value });
 
   // workflow to determine what kind of figure its going to be 
-
+  const next_line_chk = this.state.statement.split("/n");
   const answer_array = this.state.statement.split(" ");
+  
   if(answer_array[1]){
     this.setState({ type: answer_array[0] });
     answer_array[0]=''
@@ -84,18 +86,23 @@ handleChange(event) {
 
 
   if(!answer_array[5]){
-    // if(this.state.type ==='c')
-    //  {
-    //   this.setState({ cr: answer_array[3] });
-    //   answer_array[3]=''
-    //  }
+
      if(this.state.type ==='r')
      {
       this.setState({ rect_width: answer_array[4] });
       answer_array[4]=''
      }
   }
-  
+  if(this.state.type ==='p')
+  {
+        this.setState({ point_var:event.target.value });
+    
+  }
+
+
+
+
+
 
  }
 
@@ -119,6 +126,8 @@ activate_draw(event)
           <circle cx= {this.state.cx} cy= {this.state.cy} r={this.state.cr} stroke="green" stroke-width="4" fill='red' />
         
           <rect x={this.state.rect_x_axis} y={this.state.rect_x_axis}  width={this.state.rect_width} height={this.state.rect_height} stroke="green" stroke-width="4" fill='red'/>
+
+          <polygon points={this.state.point_var.substr(2)} stroke="green" stroke-width="4" fill='red'/>
         </svg>
 
       </div>
