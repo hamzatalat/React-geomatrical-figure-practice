@@ -1,8 +1,8 @@
 // imports here 
 import React from 'react';
-import Circle from './circle'
-import Rectangle from './rectangle'
-import Point from './point'
+import Circle from '../circle'
+import Rectangle from '../rectangle'
+import Point from '../point'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
