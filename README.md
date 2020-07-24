@@ -24,7 +24,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 First box is the text area where you will enter the command in this format 
 
-*** For Reactangle 
+For Reactangle 
 R <X Coordinate> <Y Coordinate> <Width> <Height>
   
 For Circle
