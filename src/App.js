@@ -1,6 +1,10 @@
 // imports here 
 import React from 'react';
 import Circle from './circle'
+import Rectangle from './rectangle'
+import Point from './point'
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 // App class here which is the main page 
@@ -18,7 +22,6 @@ class App extends React.Component {
                   ,color : ['white','red','black','green','orange','yellow','pink','golden','brown','blue',]
     };
     this.handleChange = this.handleChange.bind(this);
-    this.activate_draw = this.activate_draw.bind(this);
   }
 
 
@@ -75,7 +78,7 @@ handleChange(event) {
     }
 
       //Setting up Radius of the circle  
-    if(!answer_array[4]){
+    if(answer_array[3]){
       if(this.state.type ==='c')
        {
         this.setState({ cr: answer_array[3] });
@@ -89,7 +92,7 @@ handleChange(event) {
     }
 
 
-    if(!answer_array[5]){
+    if(answer_array[4]){
 
        if(this.state.type ==='r')
        {
@@ -108,29 +111,28 @@ handleChange(event) {
 
  }
 
-activate_draw(event)
-{
-  
-}
+
 
   render() {
     return (
-      <div>
+      <div class="col-sm-12 mt-5 text-center">
         <form>
           <textarea
+            rows="5"
+            class="inp-box"
             value={this.state.textAreaValue}
             onChange={this.handleChange}
           />
-          <button onClick={this.activate_draw}> Draw</button>
+          {/* <button onClick={this.activate_draw}> Draw</button> */}
         </form>
 
-        <svg viewbox="0 0 250 250" >
+        <svg width="250" height="250" class="mt-3" id="svg-elem">
           
 
-          <circle cx= {this.state.cx} cy= {this.state.cy} r={this.state.cr} stroke="black" stroke-width="4" fill={this.state.color[Math.floor(Math.random() * 10) + 1]} />
-          <rect x={this.state.rect_x_axis} y={this.state.rect_x_axis}  width={this.state.rect_width} height={this.state.rect_height} stroke="black" stroke-width="4" fill={this.state.color[Math.floor(Math.random() * 10) + 1]}/>
-         
-          <polygon points={this.state.point_var.substr(2)} stroke="black" stroke-width="4" fill={this.state.color[Math.floor(Math.random() * 10) + 1]}/>
+          
+          <Circle cx= {this.state.cx} cy= {this.state.cy} r={this.state.cr} fill={this.state.color[Math.floor(Math.random() * 10) + 1]} />
+          <Rectangle x={this.state.rect_x_axis} y={this.state.rect_x_axis}  width={this.state.rect_width} height={this.state.rect_height} fill={this.state.color[Math.floor(Math.random() * 10) + 1]}/>
+          <Point points={this.state.point_var.substr(2)} fill={this.state.color[Math.floor(Math.random() * 10) + 1]}/> 
         </svg>
 
       </div>
