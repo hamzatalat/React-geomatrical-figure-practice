@@ -5,11 +5,11 @@ class Circle extends React.Component{
     render(){
 
     return (
+    	<svg viewbox="10 10 200 200" >
     	<div>
-    		<svg width="100" height="100">
-          		<circle cx= '50' cy= '50' r='40' stroke="green" stroke-width="4" fill='green' />
-        	</svg>
+          	<circle cx= {this.props.cx} cy= {this.props.cy} r={this.props.r} stroke="green" stroke-width="4" fill='green' />
     	</div>
+    	</svg>
 );
 }
 }
