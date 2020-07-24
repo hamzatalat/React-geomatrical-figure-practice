@@ -23,7 +23,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### `Discription`
 
 First box is the text area where you will enter the command in this format 
-
+Put a space after each command's ends and then press enter  
 #### `For Reactangle` 
 R X Coordinate Y Coordinate Width Height
   
